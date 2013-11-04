@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">207 Project Framework</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_incident_detail">Incident Detail</string>
+    <string name="title_incident_list">Incedents</string>
+
+</resources>

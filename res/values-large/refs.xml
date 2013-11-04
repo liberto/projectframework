@@ -1,0 +1,3 @@
+<resources>
+    <item type="layout" name="activity_incident_list">@layout/activity_incident_twopane</item>
+</resources>

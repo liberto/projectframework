@@ -6,8 +6,6 @@ package edu.grinnell.projectframework;
 
 import java.io.*;
 
-import javax.xml.bind.DatatypeConverter;
-
 import java.text.ParseException;
 
 import java.util.ArrayList;
@@ -22,6 +20,8 @@ import java.net.PasswordAuthentication;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.util.Base64;
 
 public class UshahidiAPI {
         private ArrayList<Incident> incidentsList = new ArrayList<Incident>();
@@ -215,7 +215,7 @@ public class UshahidiAPI {
                 connection.setRequestMethod("POST");
                 
                 String userpass = username + ":" + password;
-                String auth = "Basic " + DatatypeConverter.printBase64Binary(userpass.getBytes());
+                String auth = "Basic " + Base64.encodeToString(userpass.getBytes(), Base64.DEFAULT);;
                 connection.setRequestProperty("Authorization", auth);
                 
                 connection.setRequestProperty("Content-Type", type);
@@ -336,7 +336,7 @@ public class UshahidiAPI {
                         connection.setRequestMethod("POST");
                         
                         String userpass = username + ":" + password;
-                        String auth = "Basic " + DatatypeConverter.printBase64Binary(userpass.getBytes());
+                        String auth = "Basic " + Base64.encodeToString(userpass.getBytes(), Base64.DEFAULT);;
                         connection.setRequestProperty("Authorization", auth);
                         
                         connection.setRequestProperty("Content-Type", type);
@@ -412,7 +412,7 @@ public class UshahidiAPI {
                 connection.setRequestMethod("POST");
                 
                 String userpass = username + ":" + password;
-                String auth = "Basic " + DatatypeConverter.printBase64Binary(userpass.getBytes());
+                String auth = "Basic " + Base64.encodeToString(userpass.getBytes(), Base64.DEFAULT);;
                 connection.setRequestProperty("Authorization", auth);
                 
                 connection.setRequestProperty("Content-Type", type);

@@ -2,9 +2,11 @@ package edu.grinnell.projectframework;
 
 import java.sql.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -25,6 +27,8 @@ public class Incident {
     private String locationName = ""; //The name of the location.
     private JSONArray media = null; //A collection of media.
     
+	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy hh:mm:ss", Locale.US);
+    
     public Incident() {
         
     } // Incident()
@@ -39,7 +43,7 @@ public class Incident {
             incidentId = Integer.parseInt(input.getJSONObject("incident").get("incidentid").toString());
             incidentTitle = input.getJSONObject("incident").get("incidenttitle").toString();
             incidentDescription = input.getJSONObject("incident").get("incidentdescription").toString();
-            incidentDate = dateFormat.parse(input.getJSONObject("incident").get("incidentdate").toString());
+            incidentDate = (Date) dateFormat.parse(input.getJSONObject("incident").get("incidentdate").toString());
             incidentActive = Integer.parseInt(input.getJSONObject("incident").get("incidentactive").toString());
             locationName = input.getJSONObject("incident").get("locationname").toString();
             media = input.getJSONArray("media");

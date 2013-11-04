@@ -1,7 +1,5 @@
 package ushahidi;
 
-import javax.xml.bind.DatatypeConverter;
-
 import java.text.ParseException;
 
 import java.util.ArrayList;
@@ -19,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import android.util.Base64;
 
 public class UshahidiAdmin {
 	private ArrayList<Incident> pendingIncidents = new ArrayList<Incident>();
@@ -92,7 +91,7 @@ public class UshahidiAdmin {
 		
 		// Authenticate user
 		String userpass = username + ":" + password;
-		String auth = "Basic " + DatatypeConverter.printBase64Binary(userpass.getBytes());
+		String auth = "Basic " + Base64.encodeToString(userpass.getBytes(), Base64.DEFAULT);;
 		connection.setRequestProperty("Authorization", auth);
 		
 		connection.setRequestProperty("Content-Type", type);
@@ -225,7 +224,7 @@ public class UshahidiAdmin {
 		connection.setRequestMethod("POST");
 		
 		String userpass = username + ":" + password;
-		String auth = "Basic " + DatatypeConverter.printBase64Binary(userpass.getBytes());
+		String auth = "Basic " + Base64.encodeToString(userpass.getBytes(), Base64.DEFAULT);;
 		connection.setRequestProperty("Authorization", auth);
 		
 		connection.setRequestProperty("Content-Type", type);
@@ -361,7 +360,7 @@ public class UshahidiAdmin {
 			connection.setRequestMethod("POST");
 			
 			String userpass = username + ":" + password;
-			String auth = "Basic " + DatatypeConverter.printBase64Binary(userpass.getBytes());
+			String auth = "Basic " + Base64.encodeToString(userpass.getBytes(), Base64.DEFAULT);
 			connection.setRequestProperty("Authorization", auth);
 			
 			connection.setRequestProperty("Content-Type", type);
